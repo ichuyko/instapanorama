@@ -3,12 +3,13 @@ let
     gm = require('gm').subClass({imageMagick: true}),
     Promise = require("bluebird");
 
-// Configuration
+// Default configuration
 let imgFile = "image.jpg";  // image to split
 let parts = 4;              // number of parts
 
-
 let w, h, wp;
+var args = process.argv;
+
 
 console.log("Loading....");
 
@@ -26,7 +27,7 @@ function getSize(file){
 
 function createPart(i){
   return new Promise(function(resolve, reject) {
-    console.log("Spliting part " + i)
+    console.log("Splitting to part " + i)
     gm(imgFile)
     .gravity('West')
     .crop(wp, h, wp * (i-1), 0)
@@ -41,6 +42,12 @@ function createPart(i){
 }
 
 getSize(imgFile).then(function(size) {
+
+  if (args.length >= 4){
+    imgFile = args[2];
+    parts = args[3];
+  }
+
   // console.log(size)
   w = size.width;
   h = size.height;
@@ -55,6 +62,8 @@ getSize(imgFile).then(function(size) {
 
 
 function onExit(args){
+  console.log("=====================================");
+  console.log("You can find results in next folder: " + __dirname);
   console.log("=====================================");
   console.log("Uptime: " + process.uptime() + " sec");
   console.log("Enjoy!");

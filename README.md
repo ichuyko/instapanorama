@@ -13,7 +13,7 @@ Installation
 
 More information: https://www.npmjs.com/package/gm
 
-Usage
+Usage 1
 =======================================
 Change in the index.js two params:
 
@@ -22,13 +22,23 @@ Change in the index.js two params:
 `parts = 4;`
 
 
-As result you will get 4 files in same folder. Use images for post in Instagram with multiple images in post. 
+Usage 2
+=======================================
+Use two start params <path_to_image_file> <number_of_parts> :
 
+`npm start image.png 3`
+
+
+
+As result you will get 4 files in same folder. Use images for post in Instagram with multiple images in post. 
 
 
 
 Release notes
 =======================================
+**2.1.0**
+* Add two start params: <path_to_image_file> <number_of_parts>
+
 
 **1.0.0**
 * Split image
