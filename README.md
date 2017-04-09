@@ -9,7 +9,7 @@ Installation
 
 `brew install graphicsmagick`
 
-`npm start`
+`npm install`
 
 More information: https://www.npmjs.com/package/gm
 
