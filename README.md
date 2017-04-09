@@ -33,3 +33,7 @@ Release notes
 **1.0.0**
 * Split image
 * Performance: 6Mb / 4 part: 2.6 sec 
+
+
+
+![InstaPanorama](https://github.com/ichuyko/instapanorama/blob/master/about.png "InstaPanorama")
