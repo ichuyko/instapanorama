@@ -1,0 +1,29 @@
+{
+  "name": "instapanorama",
+  "version": "1.0.0",
+  "description": "Split wide or panoramic image for Instagram",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ichuyko/instapanorama.git"
+  },
+  "keywords": [
+    "nodejs",
+    "instagram",
+    "javascript"
+  ],
+  "author": "ichuyko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ichuyko/instapanorama/issues"
+  },
+  "homepage": "https://github.com/ichuyko/instapanorama#readme",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "gm": "^1.23.0"
+  }
+}

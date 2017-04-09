@@ -1,0 +1,66 @@
+let
+    fs = require('fs'),
+    gm = require('gm').subClass({imageMagick: true}),
+    Promise = require("bluebird");
+
+// Configuration
+let imgFile = "image.jpg";  // image to split
+let parts = 4;              // number of parts
+
+
+let w, h, wp;
+
+console.log("Loading....");
+
+function getSize(file){
+  return new Promise(function(resolve, reject) {
+    gm(file).size(function (err, size) {
+      if (!err)
+        resolve(size);
+      else
+        reject(err);
+      });
+    console.log("Size is loaded.")
+  });
+}
+
+function createPart(i){
+  return new Promise(function(resolve, reject) {
+    console.log("Spliting part " + i)
+    gm(imgFile)
+    .gravity('West')
+    .crop(wp, h, wp * (i-1), 0)
+    .write('part' + i + '.jpg', function (err) {
+      if (!err)
+        resolve(i);
+      else
+        reject(err)
+    })
+
+  });
+}
+
+getSize(imgFile).then(function(size) {
+  // console.log(size)
+  w = size.width;
+  h = size.height;
+  wp = (w - w%parts) / parts;
+
+  for (let i = 1; i<=parts; i++)
+    createPart(i).then(function(i) {
+      console.log("Part " + i + " is done.")
+    });
+
+});
+
+
+function onExit(args){
+  console.log("=====================================");
+  console.log("Uptime: " + process.uptime() + " sec");
+  console.log("Enjoy!");
+  // process.exit(1);
+}
+
+process.on('exit', onExit);
+
+
