@@ -26,7 +26,7 @@ Usage 2
 =======================================
 Use two start params <path_to_image_file> <number_of_parts> :
 
-`npm start image.png 3`
+`npm start image.jpg 3`
 
 
 
