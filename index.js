@@ -10,6 +10,10 @@ let parts = 4;              // number of parts
 let w, h, wp;
 var args = process.argv;
 
+if (args.length >= 4){
+  imgFile = args[2];
+  parts = args[3];
+}
 
 console.log("Loading....");
 
@@ -42,11 +46,6 @@ function createPart(i){
 }
 
 getSize(imgFile).then(function(size) {
-
-  if (args.length >= 4){
-    imgFile = args[2];
-    parts = args[3];
-  }
 
   // console.log(size)
   w = size.width;
